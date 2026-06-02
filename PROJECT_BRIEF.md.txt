@@ -1,0 +1,121 @@
+# Daily State Briefing
+
+## Product Idea
+
+Daily State Briefing is an AI state assistant that helps users understand their daily state and make better decisions.
+
+It is not a therapy app.
+It is not a generic chatbot.
+It is not a health dashboard.
+
+It answers two questions:
+
+1. Why am I in this state today?
+2. What should I do with myself today?
+
+## Core Product
+
+The product sends two reports per day:
+
+### Morning Report
+
+Purpose:
+Help the user decide how to use themselves today.
+
+Inputs:
+- Sleep
+- Energy
+- Pressure
+- Screen input feeling
+
+Output:
+- Today Status
+- Explanation
+- Micro-decision
+
+### Night Report
+
+Purpose:
+Help the user understand why today felt the way it did.
+
+Output:
+- Day summary
+- Main energy drain
+- Pattern noticed
+- Tomorrow prep
+
+## MVP Goal
+
+Validate whether users will trust and rely on AI-generated state explanations and micro-decisions.
+
+The first test is not about building a full app.
+The first test is about validating emotional hit rate and decision value.
+
+## Core Status Types
+
+1. Mental Overload
+- Brain feels full
+- Too much input
+- Too much switching
+
+2. Low Recovery
+- Sleep or recovery is not enough
+- Energy feels low
+- User feels slow or foggy
+
+3. Dopamine Scatter
+- User feels restless
+- Wants to scroll
+- Hard to stay focused
+
+4. Stable Focus
+- User feels stable
+- Good day for important tasks
+
+5. Burnout Drift
+- Long-term low battery
+- Not a crash, but slowly drained
+
+## MVP Inputs
+
+Morning check-in:
+1. Sleep duration
+2. Energy level 1-5
+3. Pressure level 1-5
+4. Screen input: low / normal / high / extreme
+
+Night check-in:
+1. What drained you most today?
+2. Did you feel brain fog, irritation, or restlessness?
+3. Was the morning suggestion useful?
+4. What are you worried about tomorrow?
+
+## MVP Output Format
+
+Morning:
+- Today Status
+- Explanation
+- Today Decision
+
+Night:
+- Day Summary
+- Main Drain
+- Tomorrow Prep
+
+## Success Metrics
+
+1. Status Hit Rate
+User feels the report is accurate.
+
+2. Decision Value
+User changes behavior because of the report.
+
+3. Daily Habit
+User keeps using it across 14 days.
+
+4. Follow-up Rate
+User asks follow-up questions like:
+- Can I still work out today?
+- Should I study today?
+- Why do I feel like this?
+- How do I recover faster?

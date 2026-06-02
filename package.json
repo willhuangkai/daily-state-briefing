@@ -1,0 +1,11 @@
+{
+  "name": "daily-state-briefing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Daily State Briefing prototype for user testing.",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel"
+  },
+  "devDependencies": {}
+}

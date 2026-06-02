@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daily State Briefing</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Local MVP Prototype</p>
+          <h1>Daily State Briefing</h1>
+        </div>
+        <p class="header-note">Two check-ins. One calm decision.</p>
+      </header>
+
+      <section class="panel compact-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Tester</p>
+            <h2>Onboarding</h2>
+          </div>
+          <p id="tester-status" class="status-note">No tester saved yet.</p>
+        </div>
+
+        <form id="tester-form" class="tester-form">
+          <label>
+            Tester name
+            <input id="tester-name" type="text" autocomplete="name" placeholder="Enter tester name" required>
+          </label>
+          <button type="submit">Save Tester</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Morning</p>
+            <h2>Check-In</h2>
+          </div>
+          <span class="time-chip">Under 1 minute</span>
+        </div>
+
+        <form id="morning-form" class="form-grid">
+          <label>
+            Sleep duration
+            <select id="sleep" required>
+              <option value="lt5">Less than 5 hours</option>
+              <option value="5to6">5-6 hours</option>
+              <option value="6to7" selected>6-7 hours</option>
+              <option value="7plus">7+ hours</option>
+            </select>
+          </label>
+
+          <label>
+            Energy level
+            <input id="energy" type="range" min="1" max="5" value="3">
+            <span class="range-value"><strong id="energy-value">3</strong> / 5</span>
+          </label>
+
+          <label>
+            Pressure level
+            <input id="pressure" type="range" min="1" max="5" value="3">
+            <span class="range-value"><strong id="pressure-value">3</strong> / 5</span>
+          </label>
+
+          <label>
+            Screen input feeling
+            <select id="screen-input" required>
+              <option value="low">Low</option>
+              <option value="normal" selected>Normal</option>
+              <option value="high">High</option>
+              <option value="extreme">Extreme</option>
+            </select>
+          </label>
+
+          <button type="submit">Generate Morning Report</button>
+        </form>
+
+        <article id="morning-report" class="report" aria-live="polite">
+          <p class="empty-state">Your morning report will appear here.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Night</p>
+            <h2>Check-In</h2>
+          </div>
+        </div>
+
+        <form id="night-form" class="form-grid">
+          <label>
+            What drained you most today?
+            <select id="drain" required>
+              <option value="switching">Too much switching</option>
+              <option value="people">People pressure</option>
+              <option value="screens">Screen input</option>
+              <option value="low-recovery">Low recovery</option>
+              <option value="unclear-work">Unclear work</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Did you feel any of these?</legend>
+            <label class="check-row">
+              <input type="checkbox" name="felt" value="brain fog">
+              Brain fog
+            </label>
+            <label class="check-row">
+              <input type="checkbox" name="felt" value="irritation">
+              Irritation
+            </label>
+            <label class="check-row">
+              <input type="checkbox" name="felt" value="restlessness">
+              Restlessness
+            </label>
+          </fieldset>
+
+          <label>
+            Was the morning suggestion useful?
+            <select id="useful" required>
+              <option value="yes">Yes</option>
+              <option value="somewhat" selected>Somewhat</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+
+          <label class="wide">
+            What are you worried about tomorrow?
+            <textarea id="tomorrow-worry" rows="3" placeholder="Keep it short. One sentence is enough."></textarea>
+          </label>
+
+          <button type="submit">Generate Night Report</button>
+        </form>
+
+        <article id="night-report" class="report" aria-live="polite">
+          <p class="empty-state">Your night report will appear here.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Testing</p>
+            <h2>Local Log</h2>
+          </div>
+          <button id="clear-log" class="secondary-button" type="button">Clear Log</button>
+        </div>
+        <div id="testing-log" class="log-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

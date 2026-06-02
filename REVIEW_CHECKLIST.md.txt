@@ -1,0 +1,50 @@
+# Product Review Checklist
+
+Every code change must be reviewed against these questions.
+
+## Core Alignment
+
+1. Does this change support Daily State Briefing?
+2. Does this keep the product focused on Morning Report and Night Report?
+3. Does this preserve the structure: State → Explanation → Decision?
+4. Can a user complete the flow in under 1 minute?
+
+## Complexity Check
+
+Flag the change if it adds:
+- Social features
+- Community
+- Complex dashboard
+- Too many charts
+- Long onboarding
+- Too many inputs
+- Real-time notifications
+- Medical or therapy language
+- Expensive AI calls before validation
+
+## User Value Check
+
+The product must help the user answer:
+
+1. What state am I in?
+2. Why am I like this?
+3. What should I do now?
+
+## Output Quality Check
+
+Good outputs should feel:
+- Specific
+- Useful
+- Calm
+- Not fake
+- Not too vague
+- Not too dramatic
+
+## Reviewer Output Format
+
+When reviewing Codex changes, respond with:
+
+1. Approved / Needs Revision
+2. What is good
+3. What is risky
+4. What must be changed before merge

@@ -1,0 +1,58 @@
+# MVP Rules
+
+## Do Not Build These Yet
+
+- No social features
+- No community
+- No gamification
+- No complex dashboard
+- No Apple Health sync
+- No Screen Time API
+- No wearable sync
+- No long AI chat
+- No therapy-style experience
+- No diagnosis
+- No medical claims
+- No real-time high-frequency intervention
+- No productivity police behavior
+
+## Product Principle
+
+The user should understand the output in under 10 seconds.
+
+The daily check-in should take under 1 minute.
+
+The product must always follow this structure:
+
+State → Explanation → Decision
+
+## Tone
+
+The tone should be calm, direct, and useful.
+
+Avoid:
+- Therapist language
+- Motivational quotes
+- Corporate productivity language
+- Over-scientific language
+- Horoscope-style vague language
+
+Good example:
+"You are not lazy today. Your brain is likely overloaded from low recovery and high input."
+
+Bad example:
+"You should honor your emotions and take space for healing."
+
+Bad example:
+"Your cognitive retention index is reduced by attention residue accumulation."
+
+## First MVP
+
+Build only:
+
+1. Morning check-in form
+2. Rule-based status generator
+3. Morning Report output
+4. Night check-in form
+5. Night Report output
+6. Simple admin/testing log
