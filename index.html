@@ -10,145 +10,167 @@
     <main class="app">
       <header class="app-header">
         <div>
-          <p class="eyebrow">Local MVP Prototype</p>
+          <p class="eyebrow">本地 MVP 原型 / Local MVP Prototype</p>
           <h1>Daily State Briefing</h1>
         </div>
-        <p class="header-note">Two check-ins. One calm decision.</p>
+        <p class="header-note">两次 check-in。一个清晰决定。 / Two check-ins. One clear decision.</p>
       </header>
 
       <section class="panel compact-panel">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Tester</p>
-            <h2>Onboarding</h2>
+            <p class="eyebrow">测试者 / Tester</p>
+            <h2>基础信息 / Onboarding</h2>
           </div>
-          <p id="tester-status" class="status-note">No tester saved yet.</p>
+          <p id="tester-status" class="status-note">还没有保存测试者 / No tester saved yet.</p>
         </div>
 
         <form id="tester-form" class="tester-form">
           <label>
-            Tester name
-            <input id="tester-name" type="text" autocomplete="name" placeholder="Enter tester name" required>
+            测试者姓名 / Tester name
+            <input id="tester-name" type="text" autocomplete="name" placeholder="输入测试者姓名 / Enter tester name" required>
           </label>
-          <button type="submit">Save Tester</button>
+          <label>
+            年龄范围（可选） / Age Range (optional)
+            <select id="age-range">
+              <option value="">不填写 / Prefer not to say</option>
+              <option value="Under 18">18岁以下 / Under 18</option>
+              <option value="18-24">18-24</option>
+              <option value="25-34">25-34</option>
+              <option value="35-44">35-44</option>
+              <option value="45+">45+</option>
+            </select>
+          </label>
+          <label>
+            角色（可选） / Role (optional)
+            <select id="tester-role">
+              <option value="">不填写 / Prefer not to say</option>
+              <option value="Student">学生 / Student</option>
+              <option value="Knowledge Worker">知识工作者 / Knowledge Worker</option>
+              <option value="Founder">创始人 / Founder</option>
+              <option value="Creative">创作者 / Creative</option>
+              <option value="Other">其他 / Other</option>
+            </select>
+          </label>
+          <button type="submit">保存测试者 / Save Tester</button>
         </form>
       </section>
 
       <section class="panel">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Morning</p>
+            <p class="eyebrow">早晨 / Morning</p>
             <h2>Check-In</h2>
           </div>
-          <span class="time-chip">Under 1 minute</span>
+          <span class="time-chip">1分钟内 / Under 1 minute</span>
         </div>
 
         <form id="morning-form" class="form-grid">
           <label>
-            Sleep duration
+            睡眠时长 / Sleep duration
             <select id="sleep" required>
-              <option value="lt5">Less than 5 hours</option>
-              <option value="5to6">5-6 hours</option>
-              <option value="6to7" selected>6-7 hours</option>
-              <option value="7plus">7+ hours</option>
+              <option value="lt5">少于5小时 / Less than 5 hours</option>
+              <option value="5to6">5-6小时 / 5-6 hours</option>
+              <option value="6to7" selected>6-7小时 / 6-7 hours</option>
+              <option value="7plus">7小时以上 / 7+ hours</option>
             </select>
           </label>
 
           <label>
-            Energy level
+            精力水平 / Energy level
             <input id="energy" type="range" min="1" max="5" value="3">
             <span class="range-value"><strong id="energy-value">3</strong> / 5</span>
           </label>
 
           <label>
-            Pressure level
+            压力水平 / Pressure level
             <input id="pressure" type="range" min="1" max="5" value="3">
             <span class="range-value"><strong id="pressure-value">3</strong> / 5</span>
           </label>
 
           <label>
-            Screen input feeling
+            屏幕输入感 / Screen input feeling
             <select id="screen-input" required>
-              <option value="low">Low</option>
-              <option value="normal" selected>Normal</option>
-              <option value="high">High</option>
-              <option value="extreme">Extreme</option>
+              <option value="low">低 / Low</option>
+              <option value="normal" selected>正常 / Normal</option>
+              <option value="high">高 / High</option>
+              <option value="extreme">极高 / Extreme</option>
             </select>
           </label>
 
-          <button type="submit">Generate Morning Report</button>
+          <button type="submit">生成早晨报告 / Generate Morning Report</button>
         </form>
 
         <article id="morning-report" class="report" aria-live="polite">
-          <p class="empty-state">Your morning report will appear here.</p>
+          <p class="empty-state">你的早晨报告会显示在这里。 / Your morning report will appear here.</p>
         </article>
       </section>
 
       <section class="panel">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Night</p>
+            <p class="eyebrow">夜晚 / Night</p>
             <h2>Check-In</h2>
           </div>
         </div>
 
         <form id="night-form" class="form-grid">
           <label>
-            What drained you most today?
+            今天最消耗你的是什么？ / What drained you most today?
             <select id="drain" required>
-              <option value="switching">Too much switching</option>
-              <option value="people">People pressure</option>
-              <option value="screens">Screen input</option>
-              <option value="low-recovery">Low recovery</option>
-              <option value="unclear-work">Unclear work</option>
+              <option value="switching">切换太多 / Too much switching</option>
+              <option value="people">人际压力 / People pressure</option>
+              <option value="screens">屏幕输入 / Screen input</option>
+              <option value="low-recovery">恢复不足 / Low recovery</option>
+              <option value="unclear-work">工作不清晰 / Unclear work</option>
             </select>
           </label>
 
           <fieldset>
-            <legend>Did you feel any of these?</legend>
+            <legend>你有这些感觉吗？ / Did you feel any of these?</legend>
             <label class="check-row">
               <input type="checkbox" name="felt" value="brain fog">
-              Brain fog
+              脑雾 / Brain fog
             </label>
             <label class="check-row">
               <input type="checkbox" name="felt" value="irritation">
-              Irritation
+              烦躁 / Irritation
             </label>
             <label class="check-row">
               <input type="checkbox" name="felt" value="restlessness">
-              Restlessness
+              坐不住 / Restlessness
             </label>
           </fieldset>
 
           <label>
-            Was the morning suggestion useful?
+            早晨建议有用吗？ / Was the morning suggestion useful?
             <select id="useful" required>
-              <option value="yes">Yes</option>
-              <option value="somewhat" selected>Somewhat</option>
-              <option value="no">No</option>
+              <option value="yes">有用 / Yes</option>
+              <option value="somewhat" selected>有一点 / Somewhat</option>
+              <option value="no">没用 / No</option>
             </select>
           </label>
 
           <label class="wide">
-            What are you worried about tomorrow?
-            <textarea id="tomorrow-worry" rows="3" placeholder="Keep it short. One sentence is enough."></textarea>
+            明天你担心什么？ / What are you worried about tomorrow?
+            <textarea id="tomorrow-worry" rows="3" placeholder="一句话就够。 / One sentence is enough."></textarea>
           </label>
 
-          <button type="submit">Generate Night Report</button>
+          <button type="submit">生成夜晚报告 / Generate Night Report</button>
         </form>
 
         <article id="night-report" class="report" aria-live="polite">
-          <p class="empty-state">Your night report will appear here.</p>
+          <p class="empty-state">你的夜晚报告会显示在这里。 / Your night report will appear here.</p>
         </article>
       </section>
 
       <section class="panel">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Testing</p>
-            <h2>Local Log</h2>
+            <p class="eyebrow">测试 / Testing</p>
+            <h2>本地记录 / Local Log</h2>
           </div>
-          <button id="clear-log" class="secondary-button" type="button">Clear Log</button>
+          <button id="clear-log" class="secondary-button" type="button">清空记录 / Clear Log</button>
         </div>
         <div id="testing-log" class="log-list" aria-live="polite"></div>
       </section>
