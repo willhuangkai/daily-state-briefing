@@ -1,5 +1,6 @@
 const STORAGE_KEY = "daily-state-briefing-log";
 const TESTER_KEY = "daily-state-briefing-tester";
+const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwIPfH14BmXWhQYU2ygimM4inE3x18D8-pqF6DtHMoF7uIFrNG3NcmoTwd8nZJe29uIYw/exec";
 
 const testerForm = document.querySelector("#tester-form");
 const testerNameInput = document.querySelector("#tester-name");
@@ -47,6 +48,39 @@ function saveLog(entries) {
   renderLog();
 }
 
+function isGoogleSheetsConfigured() {
+  return GOOGLE_SHEETS_WEB_APP_URL.startsWith("https://script.google.com/");
+}
+
+function sendLogEntryToGoogleSheets(entry, eventName) {
+  if (!isGoogleSheetsConfigured()) return;
+
+  const payload = JSON.stringify({
+    eventName,
+    submittedAt: new Date().toISOString(),
+    pageUrl: window.location.href,
+    entry
+  });
+
+  if (navigator.sendBeacon) {
+    const blob = new Blob([payload], { type: "text/plain;charset=utf-8" });
+    if (navigator.sendBeacon(GOOGLE_SHEETS_WEB_APP_URL, blob)) {
+      return;
+    }
+  }
+
+  fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: payload
+  }).catch(() => {
+    // localStorage remains the backup if the network request fails.
+  });
+}
+
 function getTesterName() {
   return localStorage.getItem(TESTER_KEY) || "";
 }
@@ -72,7 +106,7 @@ function updateTesterUI() {
 function addLogEntry(entry) {
   const id = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
   const entries = getLog();
-  entries.unshift({
+  const logEntry = {
     id,
     localDate: getLocalDate(),
     tester: getDisplayTesterName(),
@@ -83,16 +117,19 @@ function addLogEntry(entry) {
       followUp: null
     },
     createdAt: new Date().toLocaleString()
-  });
+  };
+  entries.unshift(logEntry);
   saveLog(entries.slice(0, 30));
+  sendLogEntryToGoogleSheets(logEntry, "report_submission");
   return id;
 }
 
 function updateFeedback(entryId, field, value) {
   const entries = getLog();
+  let syncedEntry = null;
   const updated = entries.map((entry) => {
     if (entry.id !== entryId) return entry;
-    return {
+    syncedEntry = {
       ...entry,
       feedback: {
         accurate: null,
@@ -102,8 +139,12 @@ function updateFeedback(entryId, field, value) {
         [field]: value
       }
     };
+    return syncedEntry;
   });
   saveLog(updated);
+  if (syncedEntry) {
+    sendLogEntryToGoogleSheets(syncedEntry, "feedback_update");
+  }
 }
 
 function escapeHTML(value) {
