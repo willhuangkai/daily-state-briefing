@@ -2,7 +2,7 @@ const STORAGE_KEY = "daily-state-briefing-log";
 const TESTER_KEY = "daily-state-briefing-tester";
 const AGE_RANGE_KEY = "daily-state-briefing-age-range";
 const ROLE_KEY = "daily-state-briefing-role";
-const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwIPfH14BmXWhQYU2ygimM4inE3x18D8-pqF6DtHMoF7uIFrNG3NcmoTwd8nZJe29uIYw/exec";
+const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz24zZRiW0VgNkMe_J44jIi1LFb8hsbC-vVfc2e63FVr6PvvgbT-dkgnd6WwVHW06yp/exec";
 
 const testerForm = document.querySelector("#tester-form");
 const testerNameInput = document.querySelector("#tester-name");
