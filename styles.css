@@ -120,7 +120,7 @@ h2 {
 
 .tester-form {
   align-items: end;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
 }
 
 .form-grid {
@@ -301,7 +301,7 @@ button:hover {
 
 .log-table {
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 980px;
   width: 100%;
 }
 
